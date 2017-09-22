@@ -104,7 +104,7 @@ With **update\_entity()** and **merge\_entity()**, if the entity that you are up
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute\_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
 
 ```ruby
-azure_table_service = Azure::TableService.new
+azure_table_service = Azure::Table::TableService.new
 batch = Azure::Storage::Table::Batch.new("testtable",
     "test-partition-key") do
     insert "2", { "content" => "new content 2" }
